@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.everyday.mapper.UerFoodMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ruoyi.everyday.domain.UerFood">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="color" property="color" />
+        <result column="taste" property="taste" />
+        <result column="graw_env" property="grawEnv" />
+        <result column="cate" property="cate" />
+        <result column="yin_yang" property="yinYang" />
+        <result column="eat_way" property="eatWay" />
+        <result column="note" property="note" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, color, taste, graw_env, cate, yin_yang, eat_way, note
+    </sql>
+    <select id="seleList" resultType="com.ruoyi.everyday.domain.UerFood">
+	    select id, name, color, taste, graw_env, cate, yin_yang, eat_way, note from uer_food;
+	</select>
+</mapper>
