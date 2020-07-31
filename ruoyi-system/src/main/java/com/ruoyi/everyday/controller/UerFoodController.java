@@ -47,14 +47,8 @@ public class UerFoodController extends BaseController
     public TableDataInfo list(UerFood uerFood)
     {
         logger.info("查询食物列表");
-        System.out.println(uerFood.toString());
         startPage();
-        Map map = BeanUtil.beanToMap(uerFood);
-        QueryWrapper<UerFood> queryWrapper = new QueryWrapper<UerFood> ();
-
-        queryWrapper.allEq(map,false);
-
-        List<UerFood> list = uerFoodService.list(queryWrapper);
+        List<UerFood> list =uerFoodService.criteriaQuery(uerFood);
         return getDataTable(list);
     }
 

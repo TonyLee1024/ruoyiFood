@@ -46,7 +46,7 @@ public class ${ClassName}Controller extends BaseController
     public TableDataInfo list(${ClassName} ${className})
     {
         startPage();
-        List<${ClassName}> list = ${className}Service.list();
+        List<${ClassName}> list = ${className}Service.criteriaQuery(${className});
         return getDataTable(list);
     }
 #elseif($table.tree)

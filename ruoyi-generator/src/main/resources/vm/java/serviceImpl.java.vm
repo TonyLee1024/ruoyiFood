@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 import ${packageName}.mapper.${ClassName}Mapper;
 import ${packageName}.domain.${ClassName};
 import ${packageName}.service.I${ClassName}Service;
-
+import java.util.Map;
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 /**
  * ${functionName}Service业务层处理
  * 
@@ -27,6 +29,19 @@ public class ${ClassName}ServiceImpl  extends ServiceImpl<${ClassName}Mapper, ${
     @Autowired
     private ${ClassName}Mapper ${className}Mapper;
 
+    /**
+     * 查询${functionName}
+     * @param ${ClassName}
+     * @return
+    */
+    @Override
+    public List<${ClassName}> criteriaQuery(${ClassName} ${className}) {
+        Map map = BeanUtil.beanToMap(${className});
+        QueryWrapper<${ClassName}> queryWrapper = new QueryWrapper<${ClassName}> ();
+        queryWrapper.allEq(map,false);
+
+        return list(queryWrapper);
+    }
 ##    /**
 ##     * 查询${functionName}
 ##     *

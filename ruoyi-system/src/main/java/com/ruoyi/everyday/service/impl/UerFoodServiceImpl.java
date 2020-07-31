@@ -1,5 +1,7 @@
 package com.ruoyi.everyday.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.everyday.domain.UerFood;
 import com.ruoyi.everyday.mapper.UerFoodMapper;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 食物Service业务层处理
@@ -25,6 +28,21 @@ public class UerFoodServiceImpl  extends ServiceImpl<UerFoodMapper, UerFood>  im
     @Override
     public UerFood seleList() {
         return uerFoodMapper.seleList();
+    }
+
+    /**
+     *
+     * @param uerFood
+     * @return
+     */
+    @Override
+    public List<UerFood> criteriaQuery(UerFood uerFood) {
+        Map map = BeanUtil.beanToMap(uerFood);
+        QueryWrapper<UerFood> queryWrapper = new QueryWrapper<UerFood> ();
+
+        queryWrapper.allEq(map,false);
+
+        return list(queryWrapper);
     }
 }
 

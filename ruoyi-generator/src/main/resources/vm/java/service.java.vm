@@ -12,6 +12,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface I${ClassName}Service extends IService<${ClassName}>
 {
+    /**
+     * 查询
+     * @param ${className}
+     * @return
+     */
+    public List<${ClassName}> criteriaQuery(${ClassName} ${className});
 ##    /**
 ##     * 查询${functionName}
 ##     *
